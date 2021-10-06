@@ -1,0 +1,62 @@
+### 대소문자 변환
+- Character
+  - isLowerCase(): 소문자인지 여부
+  - isUpperCase(): 대문자인지 여부
+  - toLowerCase(): 소문자로 변환
+  - toUpperCase(): 대문자로 변환
+```java
+for(char ch : str.toCharArray()){
+    if(Character.isLowerCase(ch)){
+        builder.append(Character.toUpperCase(ch));
+    }
+    if (Character.isUpperCase(ch)) {
+        builder.append(Character.toLowerCase(ch));
+    }
+}
+```
+
+### 최대길이의 문장 찾기
+- String
+  - split(): delimeter를 기준으로 잘라내어 문자열배열로 반환
+  - indexOf(): 해당 문자에 해당하는 위치 반환
+  - substring(): 
+    - 파라미터1개 - 해당 위치까지 잘라내고 다음 위치부터 문자의 끝까지 반환
+    - 파라미터2개 - 시작 위치부터 (해당위치-1)까지 잘라내어 반환
+  
+```java
+/**
+	 * 공백을 기준으로 잘라서 각각의 길이를 구하여 해결
+	 */
+	private String solution(String str) {
+		String[] split = str.split(" ");
+		int max = 0;
+		for (int i = 0; i < split.length; i++) {
+			if (split[max].length() < split[i].length()) {
+				max = i;
+			}
+		}
+		return split[max];
+	}
+
+	/**
+	 * 공백까지 길이구하고 길이를 구한 대상에 해당하는 문자 잘라내고 
+	 * 나머지 문자에 대해서 다시 공백까지 길이구하고
+	 */
+	private String solution2(String str) {
+		int pos = 0;
+		int max = Integer.MIN_VALUE;
+		String result = str;
+		while ((pos = str.indexOf(" ")) != -1) {
+			if (pos > max) {
+				max = pos;
+				result = str.substring(0, pos + 1);
+			}
+			str = str.substring(pos + 1);
+		}
+		if (str.length() > max) {
+			result = str;
+		}
+
+		return result;
+	}
+```

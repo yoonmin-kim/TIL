@@ -24,39 +24,73 @@ for(char ch : str.toCharArray()){
     - 파라미터2개 - 시작 위치부터 (해당위치-1)까지 잘라내어 반환
   
 ```java
-/**
-	 * 공백을 기준으로 잘라서 각각의 길이를 구하여 해결
-	 */
-	private String solution(String str) {
-		String[] split = str.split(" ");
-		int max = 0;
-		for (int i = 0; i < split.length; i++) {
-			if (split[max].length() < split[i].length()) {
-				max = i;
-			}
+/*
+ * 공백을 기준으로 잘라서 각각의 길이를 구하여 해결
+ */
+private String solution(String str) {
+	String[] split = str.split(" ");
+	int max = 0;
+	for (int i = 0; i < split.length; i++) {
+		if (split[max].length() < split[i].length()) {
+			max = i;
 		}
-		return split[max];
+	}
+	return split[max];
+}
+
+/*
+ * 공백까지 길이구하고 길이를 구한 대상에 해당하는 문자 잘라내고 
+ * 나머지 문자에 대해서 다시 공백까지 길이구하고
+ */
+private String solution2(String str) {
+	int pos = 0;
+	int max = Integer.MIN_VALUE;
+	String result = str;
+	while ((pos = str.indexOf(" ")) != -1) {
+		if (pos > max) {
+			max = pos;
+			result = str.substring(0, pos + 1);
+		}
+		str = str.substring(pos + 1);
+	}
+	if (str.length() > max) {
+		result = str;
 	}
 
-	/**
-	 * 공백까지 길이구하고 길이를 구한 대상에 해당하는 문자 잘라내고 
-	 * 나머지 문자에 대해서 다시 공백까지 길이구하고
-	 */
-	private String solution2(String str) {
-		int pos = 0;
-		int max = Integer.MIN_VALUE;
-		String result = str;
-		while ((pos = str.indexOf(" ")) != -1) {
-			if (pos > max) {
-				max = pos;
-				result = str.substring(0, pos + 1);
-			}
-			str = str.substring(pos + 1);
-		}
-		if (str.length() > max) {
-			result = str;
+	return result;
+}
+```
+
+### 단어 뒤집기
+- StringBuilder 이용
+```java
+private String solution(String str) {
+		StringBuilder builder = new StringBuilder();
+		for (int i = str.length() - 1; i > -1; i--) {
+			builder.append(str.charAt(i));
 		}
 
-		return result;
+		return builder.toString();
 	}
+
+private String solution2(String str) {
+		StringBuilder builder = new StringBuilder(str).reverse();
+		return builder.toString();
+	} 
+```
+- 직접 뒤집기
+```java
+private String solution3(String str) {
+	char[] chars = str.toCharArray();
+	int lt = 0;
+	int rt = chars.length - 1;
+	while (lt < rt) {
+		char tmp = chars[lt];
+		chars[lt] = chars[rt];
+		chars[rt] = tmp;
+		lt++;
+		rt--;
+	}
+	return String.valueOf(chars);
+}
 ```

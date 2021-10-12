@@ -94,3 +94,34 @@ private String solution3(String str) {
 	return String.valueOf(chars);
 }
 ```
+- 특정문자 뒤집기(알파벳일때만, 특수문자 건너뛰기)
+```java
+private String solution(String str) {
+	char[] chars = str.toCharArray();
+	int lt = 0;
+	int rt = str.length() - 1;
+	while (lt < rt) {
+		char left = chars[lt];
+		char right = chars[rt];
+
+		if (!Character.isAlphabetic(left)) {
+			lt++;
+		}
+
+		if (!Character.isAlphabetic(right)) {
+			rt--;
+		}
+
+		if (Character.isAlphabetic(left) && Character.isAlphabetic(right)) {
+			char temp = chars[lt];
+			chars[lt] = chars[rt];
+			chars[rt] = temp;
+			lt++;
+			rt--;
+		}
+
+	}
+
+	return String.valueOf(chars);
+}
+```

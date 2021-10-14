@@ -125,3 +125,35 @@ private String solution(String str) {
 	return String.valueOf(chars);
 }
 ```
+
+### 중복문자제거
+```java
+private String solution(String str) {
+	List<Character> dupCheckList = new ArrayList<>();
+	char[] chars = str.toCharArray();
+	StringBuilder result = new StringBuilder();
+	for (char aChar : chars) {
+		if (!dupCheckList.contains(aChar)) {
+			dupCheckList.add(aChar);
+			result.append(aChar);
+		}
+	}
+
+	return result.toString();
+}
+
+/*
+ * indexOf 사용, 해당문자가 처음 발견된 위치와 현재 문자의 위치가 같을 경우 결과에 추가
+ */
+private String solution2(String str) {
+	StringBuilder result = new StringBuilder();
+	for (int i = 0; i < str.length(); i++) {
+		char c = str.charAt(i);
+		if (str.indexOf(c) == i) {
+			result.append(c);
+		}
+	}
+
+	return result.toString();
+}
+```

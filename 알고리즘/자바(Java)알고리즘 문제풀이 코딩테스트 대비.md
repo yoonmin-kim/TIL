@@ -157,3 +157,32 @@ private String solution2(String str) {
 	return result.toString();
 }
 ```
+
+### 회문문자열
+- 앞뒤가 같은문자인지 체크
+- 예) gooG, stuTs
+
+```java
+private String solution(String str) {
+	str = str.toLowerCase();
+	StringBuilder builder = new StringBuilder(str).reverse();
+	String s2 = builder.toString().toLowerCase();
+
+	if (str.equals(s2)) {
+		return "YES";
+	}
+
+	return "NO";
+}
+
+private String solution2(String str) {
+	str = str.toLowerCase();
+	int len = str.length();
+	for (int i = 0; i < len / 2; i++) {
+		if (str.charAt(i) != str.charAt(len - 1 - i)) {
+			return "NO";
+		}
+	}
+	return "YES";
+}
+```

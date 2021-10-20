@@ -186,3 +186,19 @@ private String solution2(String str) {
 	return "YES";
 }
 ```
+
+### 유효한 팰린드롬
+```java
+/**
+ * 정규식을 이용해서 알파벳이 아닌 문자는 제거
+ */
+private String solution2(String str) {
+	String s = str.toUpperCase().replaceAll("[^A-Z]", "");
+	String tmp = new StringBuilder(s).reverse().toString();
+	if (s.equals(tmp)) {
+		return "YES";
+	}
+
+	return "NO";
+}
+```

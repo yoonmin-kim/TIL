@@ -202,3 +202,22 @@ private String solution2(String str) {
 	return "NO";
 }
 ```
+
+### 숫자만 추출
+```java
+private int solution(String str) {
+	String s = str.replaceAll("[^0-9]", "");
+	return Integer.parseInt(s);
+}
+
+private int solution2(String str) {
+	int answer = 0;
+	char[] chars = str.toCharArray();
+	for (char aChar : chars) {
+		if (aChar >= 48 && aChar <= 57) {
+			answer = answer * 10 + (aChar - 48);
+		}
+	}
+	return answer;
+}
+```

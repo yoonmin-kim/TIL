@@ -221,3 +221,62 @@ private int solution2(String str) {
 	return answer;
 }
 ```
+
+### 가장 짧은 문자거리
+```java
+private String solution(String s, char t) {
+	String question = s;
+	char find = t;
+	StringBuilder answer = new StringBuilder();
+
+	// target의 위치를 먼저찾는다
+	List<Integer> index = new ArrayList<>();
+	for (int i = 0; i < question.length(); i++) {
+		if (question.charAt(i) == find) {
+			index.add(i);
+		}
+	}
+	
+	// target과 거리를 측정한다
+	for (int j = 0; j < question.length(); j++) {
+		if (question.charAt(j) == find) {
+			answer.append("0");
+		} else {
+			int min = Integer.MAX_VALUE;
+			for (int i : index) {
+				min = Math.min(Math.abs(j - i), min);
+			}
+			answer.append(min);
+		}
+	}
+	return answer.toString();
+}
+
+private int[] solution2(String s, char t) {
+	int[] answer = new int[s.length()];
+	int p = 1000;
+
+	// 왼쪽 타겟을 기준으로 거리를 측정한다
+	for (int i = 0; i < s.length(); i++) {
+		if (s.charAt(i) == t) {
+			p = 0;
+		} else {
+			p++;
+		}
+		answer[i] = p;
+	}
+
+	// 오른쪽 타겟을 기준으로 거리를 측정한다
+	p = 1000;
+	for (int j = s.length() - 1; j >= 0; j--) {
+		if (s.charAt(j) == t) {
+			p = 0;
+		} else {
+			p++;
+		}
+		answer[j] = Math.min(answer[j], p);
+	}
+
+	return answer;
+}
+```

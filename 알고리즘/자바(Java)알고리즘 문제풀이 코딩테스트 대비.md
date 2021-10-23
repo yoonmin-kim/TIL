@@ -280,3 +280,61 @@ private int[] solution2(String s, char t) {
 	return answer;
 }
 ```
+
+### 문자열 압축
+```java
+/**
+ * i-1과 i 비교 
+ */
+private String solution(String str) {
+	StringBuilder answer = new StringBuilder();
+	char[] chars = str.toCharArray();
+
+	int dupCount = 1;
+	for (int i = 0; i < chars.length; i++) {
+		if (i == 0)
+			continue;
+		if (chars[i - 1] == chars[i]) {
+			dupCount++;
+			if (i == chars.length - 1) {
+				answer.append(chars[i]).append(dupCount);
+			}
+		}
+
+		if (chars[i - 1] != chars[i]) {
+			answer.append(chars[i - 1]);
+			if (dupCount != 1) {
+				answer.append(dupCount);
+				dupCount = 1;
+			}
+			if (i == chars.length - 1) {
+				answer.append(chars[i]);
+			}
+		}
+
+	}
+	return answer.toString();
+}
+
+/**
+ * i와 i+1비교
+ */
+private String solution2(String str) {
+	str = str + " ";
+	StringBuilder answer = new StringBuilder();
+
+	int dupCount = 1;
+	for (int i = 0; i < str.length() - 1; i++) {
+		if (str.charAt(i) == str.charAt(i + 1)) {
+			dupCount++;
+		} else {
+			answer.append(str.charAt(i));
+			if (dupCount != 1) {
+				answer.append(dupCount);
+				dupCount = 1;
+			}
+		}
+	}
+	return answer.toString();
+}
+```

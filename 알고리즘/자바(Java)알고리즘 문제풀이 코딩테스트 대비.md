@@ -338,3 +338,21 @@ private String solution2(String str) {
 	return answer.toString();
 }
 ```
+
+### 암호해독
+- replace() 이용하여 문자치환
+- substring() 이용하여 문자열스플릿
+- Integer.parseInt() 이용하여 이진수 문자열 10진수로 변환
+```java
+private String solution(int length, String str) {
+	StringBuilder answer = new StringBuilder();
+	for (int i = 0; i < length; i++) {
+		String tmp = str.substring(0, 7);
+		String s = tmp.replace('#', '1').replace('*', '0');
+		int integer = Integer.parseInt(s, 2);
+		answer.append((char)integer);
+		str = str.substring(7);
+	}
+	return answer.toString();
+}
+```

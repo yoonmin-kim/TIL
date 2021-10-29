@@ -356,3 +356,32 @@ private String solution(int length, String str) {
 	return answer.toString();
 }
 ```
+
+### 피보나치 수열
+```java
+// 배열 버전
+private int[] solution(int loop) {
+	int[] answer = new int[loop];
+
+	for (int i = 0; i < loop; i++) {
+		if (i == 0 || i == 1) {
+			answer[i] = 1;
+		} else {
+			answer[i] = answer[i - 1] + answer[i - 2];
+		}
+	}
+	return answer;
+}
+
+// 손코딩 버전
+private void solution2(int loop) {
+	int a = 1, b = 1, c;
+	System.out.print(a + " " + b + " ");
+	for (int i = 2; i < loop; i++) {
+		c = a + b;
+		System.out.print(c + " ");
+		a = b;
+		b = c;
+	}
+}
+```

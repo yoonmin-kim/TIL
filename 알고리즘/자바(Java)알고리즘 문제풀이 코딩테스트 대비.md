@@ -385,3 +385,25 @@ private void solution2(int loop) {
 	}
 }
 ```
+
+### 소수 구하기
+* 에라토스 테네스체
+* 2의배수 삭제, 3의배수 삭제, 5의배수 삭제를 진행해가며 주어진 범위까지 소수를 찾아낸다
+```java
+/**
+ * 에라토스테네스 체
+ */
+private int solution(int end) {
+	int answer = 0;
+	int[] check = new int[end + 1];
+	for (int i = 2; i < end + 1; i++) {
+		if (check[i] == 0) {
+			answer++;
+			for (int j = i; j < end + 1; j += i) {
+				check[j] = 1;
+			}
+		}
+	}
+	return answer;
+}
+```

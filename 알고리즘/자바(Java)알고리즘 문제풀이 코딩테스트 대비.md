@@ -407,3 +407,25 @@ private int solution(int end) {
 	return answer;
 }
 ```
+
+### 점수계산
+* 앞의 문제에 대해서는 답을 틀리다가 답이 맞는 처음 문제는 1점으로 계산한다.
+* 또한, 연속으로 문제의 답이 맞는 경우에서 두 번째 문제는 2점, 세 번째 문제는 3점, ..., K번째 문제는 K점으로 계산한다. 
+* 틀린 문제는 0점으로 계산한다.
+
+```java
+private int solution(String[] str) {
+	int cnt = 0;
+	int answer = 0;
+	for (int i = 0; i < str.length; i++) {
+	    if(str[i].equals("1")){
+		cnt += 1;
+		answer += cnt;
+	    } else {
+		cnt = 0;
+	    }
+	}
+
+	return answer;
+}
+```

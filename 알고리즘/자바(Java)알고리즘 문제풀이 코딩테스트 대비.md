@@ -429,3 +429,22 @@ private int solution(String[] str) {
 	return answer;
 }
 ```
+
+### 등수구하기
+* 가장 높은 점수가 92점인데 92점이 3명 존재하면 1등이 3명이고 그 다음 학생은 4등이 된다
+```java
+private int[] solution(int[] str) {
+	int rank[] = new int[str.length];
+
+	for (int i = 0; i < str.length; i++) {
+	    for (int j = 0; j < str.length; j++) {
+		if (i==j) continue;
+		if(str[i] < str[j]){
+		    rank[i] = rank[i] + 1;
+		}
+	    }
+	}
+
+	return rank;
+}
+```

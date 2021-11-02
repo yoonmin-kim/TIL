@@ -448,3 +448,33 @@ private int[] solution(int[] str) {
 	return rank;
 }
 ```
+
+### 격자판 최대합
+```java
+private int solution(int[][] tmp) {
+	int answer = 0;
+	int row = 0;
+	int col = 0;
+	int upToDown = 0;
+	int downToUp = 0;
+
+	for (int i = 0; i < tmp.length; i++) {
+		for (int j = 0; j < tmp.length; j++) {
+			row += tmp[i][j];
+			col += tmp[j][i];
+			if (i == j) {
+				upToDown += tmp[i][j];
+			}
+			if (i + j == tmp.length - 1) {
+				downToUp += tmp[i][j];
+			}
+		}
+		answer = Math.max(Math.max(row, col), answer);
+		row = 0;
+		col = 0;
+
+	}
+	answer = Math.max(Math.max(upToDown, downToUp), answer);
+	return answer;
+}
+```

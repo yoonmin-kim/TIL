@@ -478,3 +478,44 @@ private int solution(int[][] tmp) {
 	return answer;
 }
 ```
+### 봉우리문제
+```java
+private int solution(int[][] tmp, int loop) {
+	int answer = 0;
+
+	for (int i = 0; i < loop; i++) {
+		for (int j = 0; j < loop; j++) {
+			if (tmp[i + 1][j + 1] > tmp[i][j + 1] &&
+				tmp[i + 1][j + 1] > tmp[i + 2][j + 1] &&
+				tmp[i + 1][j + 1] > tmp[i + 1][j] &&
+				tmp[i + 1][j + 1] > tmp[i + 1][j + 2]) {
+				answer += 1;
+			}
+
+		}
+	}
+	return answer;
+}
+
+private int solution2(int[][] tmp, int loop) {
+	int answer = 0;
+	int[] dx = {-1, 0, 1, 0};
+	int[] dy = {0, 1, 0, -1};
+
+	for (int i = 0; i < loop; i++) {
+		for (int j = 0; j < loop; j++) {
+			boolean flag = true;
+			for (int k = 0; k < dx.length; k++) {
+				if (tmp[i + 1][j + 1] < tmp[(i + 1) + dx[k]][(j + 1) + dy[k]]) {
+					flag = false;
+					break;
+				}
+			}
+			if (flag) {
+				answer += 1;
+			}
+		}
+	}
+	return answer;
+}
+```

@@ -519,3 +519,63 @@ private int solution2(int[][] tmp, int loop) {
 	return answer;
 }
 ```
+
+
+### 임시반장 정하기
+```java
+
+### 임시반장 정하기
+```java
+private int solution(int[][] tmp, int loop) {
+	int[] score = new int[loop];
+	int max = 0;
+	int answer = 0;
+
+	for (int i = 0; i < loop; i++) {
+		boolean[] dupCheck = new boolean[loop];
+		for (int j = 0; j < 5; j++) {
+			int student = tmp[i][j];
+			for (int k = 0; k < loop; k++) {
+				if (i == k)
+					continue;
+				if (dupCheck[k] == false && student == tmp[k][j]) {
+					score[i] += 1;
+					dupCheck[k] = true;
+				}
+			}
+		}
+	}
+	for (int x = 0; x < loop; x++) {
+		max = Math.max(max, score[x]);
+	}
+	for (int y = 0; y < loop; y++) {
+		if (max == score[y]) {
+			answer = y + 1;
+			break;
+		}
+	}
+	return answer;
+}
+
+private int solution2(int[][] tmp, int loop) {
+	int answer = 0;
+	int max = Integer.MIN_VALUE;
+	for (int i = 0; i < loop; i++) {
+		int cnt = 0;
+		for (int j = 0; j < loop; j++) {
+			for (int k = 0; k < 5; k++) {
+				if (tmp[i][k] == tmp[j][k]) {
+					cnt++;
+					break;
+				}
+			}
+		}
+		if (cnt > max) {
+			max = cnt;
+			answer = i;
+		}
+	}
+
+	return answer + 1;
+}
+```

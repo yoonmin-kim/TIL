@@ -579,3 +579,27 @@ private int solution2(int[][] tmp, int loop) {
 	return answer + 1;
 }
 ```
+### Two Pointers 알고리즘
+```java
+private List<Integer> solution2(int[] a, int[] b) {
+	List<Integer> answer = new ArrayList<>();
+	int p1 = 0, p2 = 0;
+
+	while (p1 < a.length && p2 < b.length) {
+		if (a[p1] < b[p2]) {
+			answer.add(a[p1++]);
+		} else {
+			answer.add(b[p2++]);
+		}
+	}
+	while (p1 != a.length || p2 != b.length) {
+		if (p1 != a.length) {
+			answer.add(a[p1++]);
+		}
+		if (p2 != b.length) {
+			answer.add(b[p2++]);
+		}
+	}
+	return answer;
+}
+```

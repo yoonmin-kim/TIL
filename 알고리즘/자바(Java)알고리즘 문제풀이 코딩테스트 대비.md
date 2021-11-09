@@ -603,3 +603,24 @@ private List<Integer> solution2(int[] a, int[] b) {
 	return answer;
 }
 ```
+### 슬라이딩윈도우
+* 연속된 b 일 동안의 최대매출 구하기
+```java
+private int solution(int b, int[] c) {
+	int answer = 0, tmp = 0;
+
+	for (int i = 0; i < b; i++) {
+		tmp += c[i];
+	}
+
+	int p1 = 0, p2 = p1 + b;
+	while (p2 < c.length) {
+		answer = Math.max(answer, tmp);
+		tmp = tmp - c[p1] + c[p2];
+		p1++;
+		p2++;
+	}
+
+	return answer;
+}
+```

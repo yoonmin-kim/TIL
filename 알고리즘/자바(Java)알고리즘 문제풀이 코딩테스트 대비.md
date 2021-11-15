@@ -624,3 +624,24 @@ private int solution(int b, int[] c) {
 	return answer;
 }
 ```
+
+### 최대길이 연속 부분수열
+```java
+private int solution(int[] tmp, int limit) {
+	int answer = 0;
+
+	int cnt = 0, lt = 0;
+	for (int rt = 0; rt < tmp.length; rt++) {
+		if (tmp[rt] == 0)
+			cnt++;
+		while (cnt > limit) {
+			if (tmp[lt] == 0)
+				cnt--;
+			lt++;
+		}
+		answer = Math.max(answer, rt - lt + 1);
+	}
+
+	return answer;
+}
+```

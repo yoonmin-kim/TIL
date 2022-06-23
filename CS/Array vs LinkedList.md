@@ -54,7 +54,7 @@ for (int i = 0; i < 10000; i++) {
 long end = System.currentTimeMillis();
 System.out.println("세팅 걸린 시간="+(end-start)+"ms");
 ```
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/66a1120f-8a1f-42c9-9958-8e336b8640c6/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220616%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220616T141435Z&X-Amz-Expires=86400&X-Amz-Signature=1443d8791da9269d28edc779655e1223d5fd9b3a218de7d2443a3ae0435acddd&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" width="400" height="150"/>
+<img src="https://github.com/yoonmin-kim/TIL/blob/main/CS/img/1.png?raw=true" width="400" height="150"/>
 
 ```java
 System.out.println("ArrayList 시작");
@@ -82,7 +82,7 @@ for(int i=0; i<9999; i++){
 long end = System.currentTimeMillis();
 System.out.println("삭제 걸린 시간="+(end-start)+"ms");
 ```
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/082756da-c49a-4ab1-9409-d05a0c2709de/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220616%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220616T142406Z&X-Amz-Expires=86400&X-Amz-Signature=cefb5ba81933a43d3e5e5ee95971e62903c4bf24e31f8998d70321e57ef972cf&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" width="400" height="150"/>
+<img src="https://github.com/yoonmin-kim/TIL/blob/main/CS/img/2.png?raw=true" width="400" height="150"/>
 
 ```java
 System.out.println("ArrayList 시작");
@@ -110,4 +110,4 @@ for(int i=0; i<9999; i++){
 long end = System.currentTimeMillis();
 System.out.println("찾기 걸린 시간="+(end-start)+"ms");
 ```
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/64ef98ae-6fc9-406a-8d22-781e01dd4975/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220616%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220616T144141Z&X-Amz-Expires=86400&X-Amz-Signature=1db8f9cf15325ea3a31c8c677eab54f3cfc966bace297eab001c85be05b354af&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" width="400" height="150">
+<img src="https://github.com/yoonmin-kim/TIL/blob/main/CS/img/3.png?raw=true" width="400" height="150">

@@ -45,8 +45,8 @@ class Ojc extends Thread {
 }
 
 public class AutomicTest {
-    static AutomicInteger i = new AutomicInteger(0);
-    volatile static int i = 0;
+    //static AutomicInteger i = new AutomicInteger(0); // 값이 5만으로 잘 나옴
+    volatile static int i = 0; // 값이 5만이 안나옴
     public static void main(String args[]) throws InterruptedException {
         AutomicTest t = new AutomicTest();
         Ojc t1 = new Ojc();        Ojc t2 = new Ojc();

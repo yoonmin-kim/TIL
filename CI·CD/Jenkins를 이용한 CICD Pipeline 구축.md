@@ -51,5 +51,15 @@ CI/CD: 자동화 파이프라인에 의해 자동으로 통합/빌드/테스트/
   * Continuous Delivery? Continuous Deployment? 패키징된 결과물을 수동으로 배포(delivery)하느냐 자동으로 배포하느냐(deployment)의 차이이다
 
 ### 젠킨스
-* 젠킨스를 활용하면 CI단계를 SCM(=VCS, git)으로부터 소스를 가져와서 빌드 -> 테스트 -> 패키징 으로 정의해두고 테스트시 문제가 발생하면 개발자들에게 알림을 보낼 수도 있고 패키징까지 정상 완료되면 운영환경에 배포까지 할 수 있다
-  
+* 젠킨스를 활용하면 CI단계를 SCM(=VCS, git)으로부터 소스를 가져와서 빌드 -> 테스트 -> 패키징 으로 정의해두고 테스트시 문제가 발생하면 개발자들에게 알림을 보낼 수도 있고 패키징까지 정상 완료되면 운영환경에 배포까지 할 수 있다.
+
+* 다양한 Plugins 연동이 가능하다.
+  * Build Plugins: Maven, Ant, Gradle
+  * VCS Plugins: Git, SVN
+  * Languages Plugins: Java, Python, Node.js
+
+<img src="./img/3.png">
+
+* 젠킨스에서는 각각의 작업 단계를 Item이라는 개념으로 만들어 사용하며 Item을 연결하여 PipeLine으로 만들 수도 있다.
+* 젠킨스의 고유한 문법인 DSL(파일명: JenkinsFile)을 통해서 스크립트로 PipeLine을 만들 수 있다.
+* https://www.jenkins.io/download/

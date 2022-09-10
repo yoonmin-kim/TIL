@@ -64,6 +64,10 @@ CI/CD: 자동화 파이프라인에 의해 자동으로 통합/빌드/테스트/
 * 젠킨스의 고유한 문법인 DSL(파일명: JenkinsFile)을 통해서 스크립트로 PipeLine을 만들 수 있다.
 * https://www.jenkins.io/download/
 
+</br>
+
+### >>>Jenkins 설치 실습 <a href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Jenkins%20%EC%84%A4%EC%B9%98.md">(이동)</a> <<<
+</br>
 
 ### CI/CD를 위한 Git, Maven 설정
 * Jenkins관리 -> 플러그인관리 메뉴에서 깃허브 플러그인을 확인한다.
@@ -83,3 +87,8 @@ CI/CD: 자동화 파이프라인에 의해 자동으로 통합/빌드/테스트/
 * 젠킨스 컨테이너에 메이븐이 깔려있지 않기 때문에 Install automatically를 설정해준다.
 
 <img src="./img/14.png">
+
+</br>
+
+### >>>Git에서 코드 가져와서 빌드하기 실습 <a href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Jenkins%20%EC%84%A4%EC%B9%98.md">(이동)</a> <<<
+</br>

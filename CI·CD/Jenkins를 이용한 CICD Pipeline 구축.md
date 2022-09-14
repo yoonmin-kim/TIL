@@ -120,3 +120,20 @@ CI/CD: 자동화 파이프라인에 의해 자동으로 통합/빌드/테스트/
 * 인코딩이 깨졌지만 자동으로 반영되어 화면이 변경 된 것을 확인할 수 있었다.
 
 <img src="./img/36.png">
+
+### SSH + Docker가 설치되어 있는 VM(컨테이너) 사용하기
+1. 젠킨스관리 -> 플러그인관리에서 Publish Over SSH 플러그인을 설치한다.
+
+<img src="./img/37.png">
+
+2. 젠킨스관리 -> 시스템설정에 Publish over SSH 항목이 추가 된 것을 확인한다.
+3. docker 환경에 SSH서버를 띄운 뒤 정상적으로 접속되는지 확인한다.
+
+<img src="./img/38.png">
+
+4. Publish over SSH 항목에 docker에서 실행중인 SSH서버를 설정해준다. (이미지에 나와있지는 않지만 포트번호까지 정확히 기입하자.)
+
+<img src="./img/39.png">
+
+5. SSH서버에서 docker서비스가 active상태인지 확인하고 정상적으로 서비스 start가 되지 않을경우 아래 참고하여 재설치하자
+* 참고: https://jhooq.com/docker-daemon-centos/

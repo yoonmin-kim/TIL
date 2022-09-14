@@ -66,7 +66,7 @@ CI/CD: 자동화 파이프라인에 의해 자동으로 통합/빌드/테스트/
 
 </br>
 
-### >>>Jenkins 설치 실습 <a href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Jenkins%20%EC%84%A4%EC%B9%98.md">(이동)</a> <<<
+### >>>Jenkins 설치 실습 <a target="_blank" href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Jenkins%20%EC%84%A4%EC%B9%98.md">(이동)</a> <<<
 </br>
 
 ### CI/CD를 위한 Git, Maven 설정
@@ -90,5 +90,33 @@ CI/CD: 자동화 파이프라인에 의해 자동으로 통합/빌드/테스트/
 
 </br>
 
-### >>>Git에서 코드 가져와서 빌드하기 실습 <a href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Jenkins%20%EC%84%A4%EC%B9%98.md">(이동)</a> <<<
+### >>>Git에서 코드 가져와서 빌드하기 실습 <a target="_blank" href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Jenkins%20%EC%84%A4%EC%B9%98.md">(이동)</a> <<<
 </br>
+
+### >>>Tomcat서버 연동 및 배포하기 실습 <a target="_blank" href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/%ED%86%B0%EC%BA%A3%EC%84%9C%EB%B2%84%EC%97%90%20%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0.md">(이동)</a> <<<
+</br>
+
+### Poll SCM 설정을 통한 지속적인 파일 업데이트
+
+* Project > Configure > BuildTriggers
+  * Build preiodically -> cron job (업데이트 사항이 없어도 빌드를 진행함)
+  * Poll SCM -> cron job (commit 하면 변경 된 사항이 생기며 이때 빌드를 진행함)
+* 유닉스계역의 잡 스케줄러인 cron job 으로 Poll을 등록할 수 있다
+
+<img src="./img/32.png">
+
+* 소스를 수정하여 github에 push한다.
+
+<img src="./img/33.png">
+
+* 젠킨스가 Poll SCM 하고있는 github repo에서 수정한 소스가 push 된 것을 확인한다.
+
+<img src="./img/34.png">
+
+* 이후 젠킨스에서 자동으로 빌드를 시작하고있다.
+
+<img src="./img/35.png">
+
+* 인코딩이 깨졌지만 자동으로 반영되어 화면이 변경 된 것을 확인할 수 있었다.
+
+<img src="./img/36.png">

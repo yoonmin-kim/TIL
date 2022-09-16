@@ -32,3 +32,16 @@ $ docker build -t docker-server -f Dockerfile .
 9. 호스트PC에서 docker-server 컨테이너에 접속해보면 다음과 같이 hello-world 서비스가 정상적으로 실행되는것으로 확인된다.
 
 <img src="./img/48.png">
+
+### 6 ~ 7 번 과정을 자동화 하기 위해서 Exec명령어를 추가한다
+* 기존에 만들었던 컨테이너와 이미지는 모두 삭제한다.
+
+<img src="./img/49.png">
+
+* 젠킨스에서 빌드가 완료된것을 확인한다.
+
+<img src="./img/50.png">
+
+* docker-server에서 이미지와 컨테이너가 젠킨스의 Exec 명령어에 의해서 생성된 것을 확인한다.
+
+<img src="./img/51.png">

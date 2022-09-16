@@ -137,3 +137,26 @@ CI/CD: 자동화 파이프라인에 의해 자동으로 통합/빌드/테스트/
 
 5. SSH서버에서 docker서비스가 active상태인지 확인하고 정상적으로 서비스 start가 되지 않을경우 아래 참고하여 재설치하자
 * 참고: https://jhooq.com/docker-daemon-centos/
+
+### >>>Docker Container에 배포하기 실습 <a target="_blank" href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Docker%20Container%EC%97%90%20%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0.md">(이동)</a> <<<
+</br>
+
+### Infrastructure as Code(IaC)
+* 시스템, 하드웨어 또는 인터페이스의 구성정보를 파일(스크립트)을 통해 관리 및 프로비저닝.
+  * 직접 커맨드를 입력하거나 GUI환경에서 클릭하는것이 아니라 스크립트를 통해 프로그래밍이 가능해지면서 자동화할 수 있는 부분이 상당히 많아진다.
+* IT 인프라스트럭쳐, 베어메탈 서버 등의 물리 장비 및 가상 머신과 관련된 구성 리소스를 관리.
+* 버전 관리를 통한 리소스 관리.
+
+(Ansible)
+* 여러 개의 서버를 효율적으로 관리할 수 있게 해주는 환경 구성 자동화 도구.
+  * Configuration Management, Deployment & Orchestration tool.
+  * IT infrastructure 자동화
+* Push 기반 서비스.
+* Simple, Agentless.
+* 할 수 있는 일.
+  * 설치: apt-get, yum, homebrew
+  * 파일 및 스크립트 배포: copy
+  * 다운로드: get_url, git
+  * 실행: shell, task
+* 결과
+  * ok/failed/changed/unreachable

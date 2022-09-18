@@ -160,3 +160,18 @@ CI/CD: 자동화 파이프라인에 의해 자동으로 통합/빌드/테스트/
   * 실행: shell, task
 * 결과
   * ok/failed/changed/unreachable
+
+### Test Ansible module
+* 실행옵션
+  * -i(--inventory-file): 적용 될 호스트들에 대한 파일 정보, 해당 옵션이 없을 경우 /etc/ansible/hosts 가 디폴트로 사용된다.
+  * -m(--module-name): 모듈 선택
+  * -k(--ask-pass): 관리자 암호 요청
+  * -K(--ask-become-pass): 관리자 권한 상승
+  * --list-hosts: 적용되는 호스트 목록
+* 멱등성
+  * 같은 설정을 여러 번 적용하더라도 결과가 달라지지 않는 성질
+  * ex) echo -e "[mygroup]\n172.20.10.11" >> /etc/ansible/hosts
+  * 아래 이미지를 보면 [mygroup]ip 가 동일하게 2개가 생성 된 것을 확인할 수 있다.
+  * ansible을 통해 해당 명령을 사용하게 되면 멱등성에 의해서 1개만 생성된다.
+
+<img src="./img/56.png">

@@ -175,3 +175,34 @@ CI/CD: 자동화 파이프라인에 의해 자동으로 통합/빌드/테스트/
   * ansible을 통해 해당 명령을 사용하게 되면 멱등성에 의해서 1개만 생성된다.
 
 <img src="./img/56.png">
+
+* https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html
+* Ansible Test
+```
+$ ansible all -m ping
+```
+
+<img src="./img/57.png">
+
+```
+$ ansible all -m shell -a "free -h"
+```
+
+<img src="./img/58.png">
+
+* /tmp 디렉토리에 test.txt 파일을 복사
+```
+$ ansible all -m copy -a "src=./test.txt dest=/tmp"
+```
+<img src="./img/59.png">
+
+<img src="./img/60.png">
+
+<img src="./img/61.png">
+
+```
+$ ansible devops -m yum -a "name=httpd state=present"
+```
+<img src="./img/62.png">
+<img src="./img/63.png">
+<img src="./img/64.png">

@@ -206,3 +206,16 @@ $ ansible devops -m yum -a "name=httpd state=present"
 <img src="./img/62.png">
 <img src="./img/63.png">
 <img src="./img/64.png">
+
+### Ansible Playbook
+* 사용자가 원하는 내용을 미리 작성해 놓은 파일
+  * ex) 설치, 파일전송, 서비스 재시작...
+  * ex) 다수의 서버에 반복 작업을 처리하는 경우
+* Playbook
+  * $ vi first-playbook.yml 작성
+  * $ ansible-playbook first-playbook.yml
+  * $ cat/etc/ansible/hosts
+
+<img src="./img/65.png">
+<img src="./img/66.png">
+<img src="./img/67.png">

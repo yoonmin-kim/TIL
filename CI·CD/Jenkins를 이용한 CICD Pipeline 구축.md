@@ -219,3 +219,11 @@ $ ansible devops -m yum -a "name=httpd state=present"
 <img src="./img/65.png">
 <img src="./img/66.png">
 <img src="./img/67.png">
+
+### Jenkins + Asible 연동하기
+* Jnkins관리 -> 시스템 설정 -> SSH Server 추가
+
+<img src="./img/68.png">
+
+### >>>Jenkins + Ansible Playbook 사용하기 실습 <a target="_blank" href="./Jenkins+Ansible Playbook.md">(이동)</a> <<<
+</br>

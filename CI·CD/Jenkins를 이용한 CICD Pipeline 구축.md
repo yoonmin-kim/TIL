@@ -227,3 +227,39 @@ $ ansible devops -m yum -a "name=httpd state=present"
 
 ### >>>Jenkins + Ansible Playbook 사용하기 실습 <a target="_blank" href="./Jenkins+Ansible Playbook.md">(이동)</a> <<<
 </br>
+
+### Ansible을 이용한 Docker 이미지 관리
+
+* 기존이미지에 태그를 붙인다. 해당 이미지를 도커 허브에 올린다.
+
+<img src="./img/82.png">
+
+* docker login 명령어를 통해 로그인을 한 뒤
+* docker push rladbsals23/cicd-project-ansible 를 하면 도커 허브에 업로드가 된다.
+
+<img src="./img/83.png">
+
+* 도커 이미지를 빌드하고 푸시하고 삭제하는 playbook.yml 파일을 생성한다.
+
+<img src="./img/84.png">
+
+* ansible-playbook을 실행하여 도커허브에 이미지가 업로드 되는 것을 확인한다.
+
+<img src="./img/85.png">
+<img src="./img/86.png">
+
+* 기존의 컨테이너 생성용 playbook.yml을 수정한다.
+* 도커 이미지명을 바꿔주고 이미지를 허브에서 내려받는 명령도 추가한다.
+```
+$ mv first-devops-playbook.yml create-cicd-devops-container.yml
+```
+
+<img src="./img/87.png">
+
+* 등록 된 hosts 모두 실행하는게 아니라 --limit 옵션을 줘서 제한을 할 수 있다.
+
+<img src="./img/88.png">
+
+* 도커허브에 정상적으로 업로드 된 것을 확인한다.
+
+<img src="./img/89.png">

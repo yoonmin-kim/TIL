@@ -225,7 +225,7 @@ $ ansible devops -m yum -a "name=httpd state=present"
 
 <img src="./img/68.png">
 
-### >>>Jenkins + Ansible Playbook 사용하기 실습 <a target="_blank" href="./Jenkins+Ansible Playbook.md">(이동)</a> <<<
+### >>>Jenkins + Ansible Playbook 사용하기 실습 <a target="_blank" href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Jenkins%2BAnsible%20Playbook.md">(이동)</a> <<<
 </br>
 
 ### Ansible을 이용한 Docker 이미지 관리
@@ -263,3 +263,6 @@ $ mv first-devops-playbook.yml create-cicd-devops-container.yml
 * 도커허브에 정상적으로 업로드 된 것을 확인한다.
 
 <img src="./img/89.png">
+
+### >>>Ansible Playbook으로 Docker컨테이너 생성하기 실습 <a target="_blank" href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Ansible%20Playbook으로%20Docker컨테이너%20생성하기.md">(이동)</a> <<<
+</br>

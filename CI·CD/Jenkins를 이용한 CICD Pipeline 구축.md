@@ -266,3 +266,36 @@ $ mv first-devops-playbook.yml create-cicd-devops-container.yml
 
 ### >>>Ansible Playbook으로 Docker컨테이너 생성하기 실습 <a target="_blank" href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Ansible%20Playbook으로%20Docker컨테이너%20생성하기.md">(이동)</a> <<<
 </br>
+
+### Kubernetes 소개
+* 오픈소스 기반의 컨테이너화 된 애플리케이션(워크로드와 서비스)의 자동배포, 스케일링 등을 제공하는 관리 플랫폼
+
+가능|불가능
+-|-
+컨테이너화 된 애플리케이션 구동|소스코드 배포x, 빌드x
+서비스 디스커버리와 로드 밸런싱| 앺플리케이션 레벨 서비스x
+스토리지 오케스트레이션|로깅, 모니터링 솔루션x
+자동화 된 롤아웃과 롤백|포괄적인 머신 설정, 유지보수, 관리, 자동복구 시스템을 제공x
+자동화 된 빈 패킹(bin packing)|
+자동화 된 복구(self-healing)|
+시크릿과 구성 관리
+
+### Kubernetes Cluster
+
+* Master(Control Plane) Node가 각 Work Node를 관리한다.
+* 실제 컨테이너를 스케줄링하고 운영하는 것은 Work Node이다.
+* Master Node와 Work Node를 묶어서 쿠버네티스 클러스터라고 한다.
+```
+Master Node: 설정정보, 사용자 스케줄관리, api 처리가 가능하도록 구성되어있다.
+Work Node: 실제 운영하고자하는 컨테이너를 관리하기 위한 Pod라는 개념과 Pod를 운영하기 위한 Kublet이라는 개념이 포함되어있다.
+Services: 각 Pod간에 데이터를 주고받을 수 있도록 네트워크 관련된 작업을 해준다. 또한, Replicated 된 Pods 그룹 간에 로드 밸런싱을 제공한다.
+Pods: 애플리케이션을 위해 서로 상호 작용해야 하는 컨테이너들의 논리적인 집합.
+
+1. 개발자 혹은 관리자가 UI/CLI 환경에서 명령어을 Master Node의 API서버에 전달을 한다.
+2. API서버는 자기가 가용하고 있는 Worker Node 들에게 해당 명령어를 전달한다.
+3. 2번 과정에서 전달되는 명령어를 전달받는 역할을 Kube Proxy가 한다. 
+(Kube Proxy는 클러스터의 각 Node에서 실행되고 있는 네트워크 Proxy이다. 네트워크의 유지/관리를 담당한다.)
+4. 사용자들은 각각의 Work Node에 붙어서 어플리케이션 서비스를 이용한다.
+```
+
+<img src="./img/95.png">

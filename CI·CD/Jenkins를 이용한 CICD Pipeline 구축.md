@@ -299,3 +299,48 @@ Pods: 애플리케이션을 위해 서로 상호 작용해야 하는 컨테이�
 ```
 
 <img src="./img/95.png">
+
+### Kubernetes 설치
+* https://github.com/joneconsulting/k8s/blob/master/install/kubernetes_install.md
+
+### Kubernetes 기본 명령어
+* 노드확인
+  * $ kubectl get nodes
+* 파드확인
+  * $ kubectl get pod
+* 서비스확인
+  * $ kubectl get services
+* Nginx 서버 실행
+  * $ kubectl run sample-nginx --image=nginx --port=80
+
+<img src="./img/96.png">
+
+* 컨테이너 정보 확인
+  * $ kubectl describe pods sample-nginx
+  * 어떤 Node에 설치됐는지, NameSpace, IP, 포트, 컨테이너 이미지, Events 등을 확인할 수 있다.
+
+<img src="./img/97.png">
+
+* 파드삭제
+  * $ kubectl delete pod/sample-nginx
+* 디플로이먼트 생성  
+  * $ kubectl create deployment sample-nginx --images=nginx
+  * 일반 pod 실행과 deployment는 pod를 실행함에 있어서 차이는 없다
+  * 다만 deployment는 pod가 crush, delete 등의 장애가 발생해도 최소 pod 수를 유지하려는 성질이 있고<br>
+  그 외 좀 더 많은 특징을 가지고 있다.
+
+* 디플로이먼트 확인
+  * $ kubectl get deployments
+* 디플로이먼트 스케일 변경(2로변경)
+  * $kubectl scale deployment sample-nginx --replicas=2
+  * 위 명령에서 곧바로 replicas=1로 설정하면 늘어났던 pod가 다시 줄어드는 것을 확인할 수 있다.
+
+<img src="./img/98.png">
+
+* 디플로이먼트 삭제
+  * $ kubectl delete deployment.apps/sample-nginx
+
+* samples1.yml 을 작성후 kubectl apply 명령으로 deployment작업 실행.
+  * $ kubectl apply -f samples1.yml
+
+<img src="./img/99.png">

@@ -307,7 +307,7 @@ Pods: 애플리케이션을 위해 서로 상호 작용해야 하는 컨테이�
 * 노드확인
   * $ kubectl get nodes
 * 파드확인
-  * $ kubectl get pod
+  * $ kubectl get pod [-o wide]
 * 서비스확인
   * $ kubectl get services
 * Nginx 서버 실행
@@ -344,3 +344,21 @@ Pods: 애플리케이션을 위해 서로 상호 작용해야 하는 컨테이�
   * $ kubectl apply -f samples1.yml
 
 <img src="./img/99.png">
+
+* 파드에 터널링으로 접속
+  * $ kubectl exec -it nginx-deployment-7fd6966748-prw9l -- /bin/bash
+
+<img src="./img/100.png">
+
+* 파드 노출(공개)
+  * $ kubectl expose deployment nginx-deployment --port=80 --type=NodePort
+
+* cicd-devops-deployment.yml 로 deployment 실행하기
+  * $ kubectl apply -f cicd-devops-deployment.yml
+
+<img src="./img/101.png">
+
+* cicd-devops-service.yml 로 service 실행하기
+  * $ kubectl apply -f cicd-devops-service.yml
+
+<img src="./img/102.png">

@@ -362,3 +362,28 @@ Pods: 애플리케이션을 위해 서로 상호 작용해야 하는 컨테이�
   * $ kubectl apply -f cicd-devops-service.yml
 
 <img src="./img/102.png">
+
+### Ansible에서 Kubernetes 제어하기
+
+* ansible-server에서 미니큐브 호스트PC로 ssh접속이 가능하도록 설정한다.
+
+<img src="./img/103.png">
+
+* ansible-server $HOME/k8s/hosts 파일을 만든다
+
+<img src="./img/104.png">
+
+* 아래와 같은 오류가 발생하면 다음의 명령어를 실행한다.
+```
+$ ssh-copy-id yoonmin@172.22.179.5
+```
+
+<img src="./img/105.png">
+
+* 미니큐브 호스트PC에 $HOME/.ssh/authorized_keys 파일을 확인해보면 ansible-server의 정보가 추가된 것을 확인할 수 있다.
+
+<img src="./img/106.png">
+
+* 다시 실패했던 명령어를 yoonmin계정으로 시도하면 성공하는것을 확인할 수 있다.
+
+<img src="./img/107.png">

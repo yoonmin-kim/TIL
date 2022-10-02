@@ -387,3 +387,44 @@ $ ssh-copy-id yoonmin@172.22.179.5
 * 다시 실패했던 명령어를 yoonmin계정으로 시도하면 성공하는것을 확인할 수 있다.
 
 <img src="./img/107.png">
+
+### Ansible playbook으로 Kubernetes Script 실행하기
+
+* ansible-server 에 k8s-cicd-deployment-playbook.yml 을 생성한다.
+
+<img src="./img/108.png">
+
+* 미니큐브에 cicd-devops-deployment.yml 을 생성한다.
+
+<img src="./img/109.png">
+
+* 다음의 명령을 ansible-server 에서 실행하면 미니큐브에 deployment가 생성된 것을 확인할 수 있다.
+```
+$ ansible-playbook -i ./k8s/hosts k8s-cicd-deployment-playbook.yml -u yoonmin
+```
+<img src="./img/110.png">
+
+* 미니큐브에서 ansible-server 의 playbook 명령에 의해 생성된 deployment 가 확인된다.
+
+<img src="./img/111.png">
+
+* 명령어를 실행했는데 맥OS 같은 경우 오류가 발생할 수 있다. 그럴때는 아래와 같이 절대경로를 추가해주면 해결된다.
+
+<img src="./img/113.png">
+<img src="./img/112.png">
+
+* ansible-server 에 k8s-cicd-service-playbook.yml 을 생성한다.
+
+<img src="./img/114.png">
+
+* 미니큐브에 cicd-devops-service.yml 을 생성한다.
+
+<img src="./img/115.png">
+
+* ansible-server 에서 다음의 명령을 실행하면 미니큐브에 service가 실행된 것을 확인할 수 있다.
+```
+$ ansible-playbook -i ./k8s/hosts k8s-cicd-service-playbook.yml -u yoonmin
+``` 
+
+<img src="./img/116.png">
+<img src="./img/117.png">

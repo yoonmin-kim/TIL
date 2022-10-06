@@ -428,3 +428,8 @@ $ ansible-playbook -i ./k8s/hosts k8s-cicd-service-playbook.yml -u yoonmin
 
 <img src="./img/116.png">
 <img src="./img/117.png">
+
+### >>>Jenkins + Ansible + Kubernetes 연동하기 실습 <a target="_blank" href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Jenkins%2BAnsible%2BKubernetes%20연동하기%20실습.md">(이동)</a> <<<
+</br>
+
+

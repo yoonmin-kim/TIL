@@ -433,3 +433,30 @@ $ ansible-playbook -i ./k8s/hosts k8s-cicd-service-playbook.yml -u yoonmin
 </br>
 
 
+### 전체 CI/CD 자동화 프로세스 구성
+* Jenkins CI/CD Jobs
+
+CI Jobs|CD Jobs
+-|-
+git pull|create a deployment(replicaset:2)
+create a docker image|create a service
+push the image to the registry<br>(https://hub.docker.com)
+remove the image from the local
+
+* Dockerfile
+```
+FROM tomcat:9.0
+
+COPY ./webapp.war /usr/local/tomcat/webapps
+```
+* Post-build Actions
+  * SSH Server: ansible-host
+* Exec command
+  * ansible-playbook -i ./k8s/hosts create-cicd-devops-image.yml --limit ansible-server
+* Build Now
+* Modify code
+* Configuration
+* Post-build Actions
+  * Build other projects
+    * Deploy on Kubernetes CD(CD job) -> My-K8s-Project-using-Ansible
+      * Trigger only if build is stable

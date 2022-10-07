@@ -2,7 +2,7 @@
 #    become: true
   tasks:
   - name: create a docker image with deployed war file
-    command: docker build -t rladbsals23/cicd-project-ansible
+    command: docker build -t rladbsals23/cicd-project-ansible .
     args:
         chdir: /root
   

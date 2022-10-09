@@ -25,3 +25,14 @@
 <img src="./img/131.png">
 <img src="./img/132.png">
 <img src="./img/133.png">
+
+* My-K8s-Project-using-Ansible 에서 PollSCM설정을 해제한다
+* ansible-server 에서 ansible-playbook 으로 쿠버네티스에 deployment를 생성할 때 이미 deployment가 존재할 경우 삭제할 수 있도록 커맨드를 추가한다
+* 존재하는 deployment가 없을 경우 오류가 발생할 수 있기 때문에 ignore_errors 옵션을 추가한다
+
+<img src="./img/134.png">
+
+* github에 push를 하거나 My-K8s-Project-for-CI 를 수동으로 빌드 할 경우 My-K8s-Project-using-Ansible 까지 자동으로 빌드되어 최종적으로
+* 쿠버네티스에 deployment가 생성되는 것을 확인 할 수 있다
+
+<img src="./img/135.png">

@@ -460,3 +460,34 @@ COPY ./webapp.war /usr/local/tomcat/webapps
   * Build other projects
     * Deploy on Kubernetes CD(CD job) -> My-K8s-Project-using-Ansible
       * Trigger only if build is stable
+
+### Delivery Pipeline 사용
+* My-First-Project, My-Second-Project 에 빌드 후 조치 설정을 한다.
+
+<img src="./img/136.png">
+<img src="./img/137.png">
+
+* 젠킨스 플러그인 설치
+  * Delivery Pipeline
+
+<img src="./img/138.png">
+
+* 프로젝트의 Pipeline을 시각화 해주는 뷰를 생성한다.
+
+<img src="./img/139.png">
+
+<img src="./img/140.png">
+
+* 뷰를 생성하면 나오는 설정 화면에서 Pipelines->Components를 추가한다.
+
+<img src="./img/141.png">
+
+<img src="./img/142.png">
+
+* 새롭게 생성된 뷰에서 제공하는 화면이다.
+
+<img src="./img/143.png">
+
+* My-First-Project 를 시작하면 파이프라인을 따라 진행상황을 표시해준다.
+
+<img src="./img/144.png">

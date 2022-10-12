@@ -491,3 +491,49 @@ COPY ./webapp.war /usr/local/tomcat/webapps
 * My-First-Project 를 시작하면 파이프라인을 따라 진행상황을 표시해준다.
 
 <img src="./img/144.png">
+
+### Jenkins Pipeline 스크립트 사용
+* 파이프라인은 기본적으로 두가지 방식으로 작성 가능하다
+  * Declarative <실패하면 정지>
+  * Scripted(Groovy + DSL) <실패하더라도 다음단계 진행>
+* 차이점
+  * 시작 시 유효성 검사 유무
+  * 특정 Stage 실행 가능 여부
+  * 제어문
+  * Option
+
+```
+(Declarative)
+- Groovy 스크립트 없이 간단하게 실행
+
+pipeline {      1)---------------> 실행 가능한 Agent에서 Pipeline 실행
+    agent any
+    stages {
+        steps('build') { 2) -----> build 스테이지 선언
+          //             3) -----> bubild 스테이지에 필요한 작업을 수행
+        }
+
+        steps('test') {  4) -----> test 스테이지 선언
+          //             5) -----> test 스테이지에 필요한 작업을 수행
+        }
+
+        steps('deploy') { 6) ----> deploy 스테이지 선언
+          //              7) ----> deploy 스테이지에 필요한 작업을 수행
+        }
+    }
+}
+
+node {
+    stage('build') {
+      //
+    }
+
+    stage('test') {
+      //
+    }
+
+    stage('deploy') {
+
+    }
+}
+```

@@ -45,3 +45,21 @@ pipeline {
 * 빌드 결과 화면
 
 <img src="./img/160.png">
+
+* 스크립트 추가를 위해 Pipeline syntax를 이용한다.
+
+<img src="./img/161.png">
+
+* Pipeline syntax로 generate한 스크립트를 다음과 같이 steps으로 추가한다.
+
+<img src="./img/162.png">
+
+* 배포테스트를 하기 전 기존에 배치된 앱을 삭제한다.
+
+<img src="./img/163.png">
+
+* 빌드 및 배포 완료된 것을 확인한다.
+
+<img src="./img/164.png">
+
+<img src="./img/165.png">

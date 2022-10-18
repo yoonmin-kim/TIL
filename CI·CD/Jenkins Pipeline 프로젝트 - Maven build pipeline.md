@@ -63,3 +63,31 @@ pipeline {
 <img src="./img/164.png">
 
 <img src="./img/165.png">
+
+* Pipeline 스크립트에 ssh publisher란 이름으로 추가할 stage를 위한 Syntax를 생성한다.
+
+<img src="./img/166.png">
+
+<details>
+<summary>추가 한 스크립트</summary>
+<div markdown="1">
+
+```
+        stage('ssh publisher') {
+            steps {
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'docker-server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'docker build -t rladbsals23/devops_exam1 -f Dockerfile .', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+        }
+
+```
+
+</div>
+</details>
+
+* 빌드가 성공하는 것을 확인한다.
+
+<img src="./img/167.png">
+
+* docker-server 에서 커맨드 명령을 통해 진행 된 도커 빌드의 결과인 이미지를 확인한다.
+
+<img src="./img/168.png">

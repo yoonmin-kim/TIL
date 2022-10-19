@@ -546,3 +546,17 @@ node {
 
 ### >>>Jenkins Pipeline 프로젝트 - Maven build + Tomcat 서버에 배포 + Docker 컨테이너 배포 pipeline <a target="_blank" href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/Jenkins%20Pipeline%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20-%20Maven%20build%20pipeline.md">(이동)</a> <<<
 </br>
+
+### SonarQube 사용하기
+* Continuous Integration + Analysis
+  * 코드의 품질을 높이기 위해서 -> Issues + Defect + Code Complexity
+  * 버그 및 보안 취약성이 있는 코드를 찾아줌
+  * Track Code Smells
+* 17가지 언어를 지원
+  * Java, C#, JavaScript, TypeScript, CloudFormation, Terraform, Kotlin, Ruby, Go, <br>
+  Scala, Flex, Python, PHP, HTML, CSS, XML, VB.NET
+* CI/CD integration
+* Extensible, with 50+ community plugins
+```
+$ docker run --rm -p 9000:9000 --name sonarqube sonarqube
+```

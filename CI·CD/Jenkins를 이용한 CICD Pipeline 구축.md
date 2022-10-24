@@ -560,3 +560,29 @@ node {
 ```
 $ docker run --rm -p 9000:9000 --name sonarqube sonarqube
 ```
+
+### >>>SonarQube + Maven 프로젝트 사용하기 <a target="_blank" href="https://github.com/yoonmin-kim/TIL/blob/main/CI%C2%B7CD/SonarQube%EC%99%80%20Maven%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md">(이동)</a> <<<
+</br>
+
+### Jenkins + SonarQube 연동
+* Manage Jenkins -> Plugin Manager -> Available
+  * SonarQube Scanner for Jenkins
+* Manage Jenkins -> Manage Credentials -> Add Credentials
+  * Secret 항목에 소나큐브 토큰 입력, id값은 임의의 값
+* Manage Jenkins -> Configure System -> SonarQube servers
+  * Environment variables 선택
+  * Name: SonarQube 서버의 이름지정
+  * Server URL: SonarQube 서버의 IP address
+  * Server authentication token: Credentials 에서 지정한 Token 정보
+
+* 젠킨스 플러그인에 소나큐브 스캐너를 설치한다.
+
+<img src="./img/175.png">
+
+* Credentail에 소나큐브 토큰을 추가한다.
+
+<img src="./img/176.png">
+
+* 젠킨스관리 시스템설정에서 소나큐브설정을 추가한다.
+
+<img src="./img/177.png">

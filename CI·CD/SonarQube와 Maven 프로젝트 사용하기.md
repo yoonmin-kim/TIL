@@ -17,17 +17,17 @@
 <img src="./img/169.png">
 
 ```
-token : squ_d4aef379caa6acdb793fd66b5e9d6d3f2f4c3384
+token : squ_016fc2c467186cb417bac0b3c220a620f61863a0
 ```
 * 아래 명령을 이용해서 프로젝트를 빌드한다.
 
 ```
-mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -X -Dsonar.login=squ_d4aef379caa6acdb793fd66b5e9d6d3f2f4c3384
+mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -X -Dsonar.login=squ_016fc2c467186cb417bac0b3c220a620f61863a0
 ```
 
 <img src="./img/170.png">
 
-* 소나큐브 페이지에서 Projects 를 클릭해보면 좀전에 빌드한 겨로가를 확인할 수 있다.
+* 소나큐브 페이지에서 Projects 를 클릭해보면 좀전에 빌드한 결과를 확인할 수 있다.
 * 특별한 문제가 없기 때문에 Passed로 표시가 된다.
 
 <img src="./img/171.png">

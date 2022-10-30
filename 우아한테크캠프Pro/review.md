@@ -41,3 +41,68 @@ void 음수라면_EX(String target) {
             .withMessageContaining(ERROR_NUMBER_MESSAGE);
 }
 ```
+
+## 로또(자동)
+### [피드백]
+<img src="./img/4.png">
+
+### (스트림 사용)
+
+<img src="./img/5.png">
+
+```java
+private List<Integer> isNotNullAndNotEmptyThenSplit() {
+    String[] splits = splitter.split(target);
+    List<Integer> result = new ArrayList<>();
+    Arrays.stream(splits).forEach(split -> result.add(isValidatedThenParseInt(split))); // 스트림으로 변경
+    return result;
+}
+```
+### (가독성)
+<img src="./img/6.png">
+
+```java
+public void createLotto() {
+    Runnable readWinningNumber = () -> service.saveLotto(view.readWinningNumber());
+
+    while (!isComplete(readWinningNumber)) {
+    }
+}
+```
+
+### (클래스명을 명확히 하라)
+<img src="./img/7.png">
+
+* 클래스명을 LottoGame으로 변경
+
+### (직관적인 코드, Iterator 를 가져오기보다는 의미가 명확한 메소드로 만들어 해당 객체에게 메시지로 전달)
+
+<img src="./img/8.png">
+
+```java
+public DefaultLottoResult result() {
+    lottoNumbers.createMatchCount(winningNumber)
+            .forEach(matchCount -> lottoResult.calculateTotalCount(matchCount));
+    return lottoResult;
+}
+
+public List<Integer> createMatchCount(WinningNumber winningNumber) {
+    return lottoNumbers.stream()
+            .map(lottoNumber -> winningNumber.matchNumber(lottoNumber.createIterator()))
+            .collect(Collectors.toList());
+}
+```
+
+
+### (과한 상수추출은 피하라)
+<img src="./img/9.png">
+
+* 둘다 substring()을 사용하는 구간이였음
+
+### (생성자를 간결하게 유지하고 검증기보다는 차라리 생성기를 만들어서 내부에서 검증하라)
+<img src="./img/10.png">
+
+### (인터페이스에 상수를 보관하지 말라)
+* 링크 : https://jinseongsoft.tistory.com/190
+
+<img src="./img/11.png">

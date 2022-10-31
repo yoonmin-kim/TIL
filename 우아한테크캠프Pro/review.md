@@ -106,3 +106,13 @@ public List<Integer> createMatchCount(WinningNumber winningNumber) {
 * 링크 : https://jinseongsoft.tistory.com/190
 
 <img src="./img/11.png">
+
+### (해당 구조를 유지할 경우 멀티스레드 환경에 대한 고려가 필요)
+<img src="./img/12.png">
+
+```
+- 메모리 Repository를 유지한다면 ThreadLocal를 활용하여 LottoNumbers 를 저장해야 할 것으로 보임
+- 피드백 주신 내용을 듣고 Repository를 제거 후 LottoGame 객체내부에서 LottoNumbers의 상태를 갖도록 하였음
+- 현재 요구사항에는 단일쓰레드 구현이다보니 LottoGame을 싱글턴으로 구현하였으나 만약 멀티쓰레드 환경으로 변경되어야 한다면
+- LottoGame를 각 쓰레드마다 생성하도록 수정해야 할 것 같음
+``` 

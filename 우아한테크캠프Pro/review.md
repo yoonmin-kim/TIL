@@ -116,3 +116,39 @@ public List<Integer> createMatchCount(WinningNumber winningNumber) {
 - 현재 요구사항에는 단일쓰레드 구현이다보니 LottoGame을 싱글턴으로 구현하였으나 만약 멀티쓰레드 환경으로 변경되어야 한다면
 - LottoGame를 각 쓰레드마다 생성하도록 수정해야 할 것 같음
 ``` 
+### (`equals()`, `hashCode()`의 오버라이드를 항상 고려하자)
+<img src="./img/13.png">
+
+### (변수명은 혼란을 줄일 수 있는 명칭으로 생각하자)
+<img src="./img/14.png">
+
+### (하나의 메소드가 여러일을 하지 않도록 하자)
+<img src="./img/15.png">
+
+```java
+// LottoResult 메소드
+public LottoResult matchResult(MatchCount matchCount) {
+    if (matchCount.equals(this.matchCount)) {
+        return matchCount.isMatchBonus(this);
+    }
+    return MISS;
+}
+
+public void addTotalCount() {
+    this.totalCount++;
+}
+
+// MatchCount 메소드
+public LottoResult isMatchBonus(LottoResult lottoResult) {
+    if (lottoResult == LottoResult.FIVE) {
+        return !matchBonus ? LottoResult.FIVE : LottoResult.MISS;
+    }
+    if (lottoResult == LottoResult.FIVE_BONUS) {
+        return matchBonus ? LottoResult.FIVE_BONUS : LottoResult.MISS;
+    }
+    return lottoResult;
+}
+```
+
+### (`default`가 필요 할 경우 `abstract class`의 사용을 고려하자)
+<img src="./img/16.png">

@@ -75,3 +75,60 @@
   * 단위테스트, CI/CD를 하고있는지
   * 이직의 근거가 될 만한 정보를 충분히 물어본다
  
+### JPA Hands-on 강의
+```java
+@Test
+    void identity() {
+        final Station stations1 = stations.save(new Station("잠실역"));
+        final Station stations2 = stations.findById(stations1.getId()).get();
+        // 자바에서는 일반적으로 equals() hashCode() 동등성 비교는 제공함
+        // jvm 의 메모리까지 같아야 동일성
+        // Integer 는 자바에서 일부값들을 캐싱해두기 때문에 일부는 동일성이 보장되지만 해당 범위를 벗어나면 동일성 보장 안됨
+        // JPA 는 Id만 같다면 1차 캐시를 통해서 동일성을 보장해준다
+        // key 값이 똑같은 녀석이 2개이상 존재할 수 없다(유일하게 존재)
+        // 영속성 컨택스트 캐시는 트랜잭션이 열리고 닫히는 시간까지만 유지된다
+        assertThat(stations1 == stations2).isTrue();
+    }
+```
+* save() 호출시 insert 쿼리가 나가는데 Id 가 없을 경우에는 새로 생성 될 데이터로 판단된다
+* save() 호출시 Id를 들고있을 경우 select 쿼리가 나가는데 db에서 데이터가 있는지 확인후 합치는 작업는 작업을 진행한다
+
+* merge() 는 경우에 따라서 내가 인자로 넣어준 entity 를 그대로 반환하지 않을 수 있다 (주소값이 달라짐)
+
+<img src="./img/17.png">
+
+* 때문에 save() 호출시 반환되는 값을 담아주고 사용한다
+```java
+Station stations = new Station("잠실역");
+stations = stations.save(new Station("잠실역"));
+```
+
+* Id를 들고있지만 save()시 select를 나가지 않게 하기 위한 방법
+
+```java
+@Entity
+public class Station implements Persistable<Long> {
+    @Override
+    public boolean isNew() {
+        return true;
+    }
+}
+```
+
+* @Transactional 애노테이션 속성에 readOnly = true 를 사용 할 경우 `영속성 컨텍스트 스냅샷`을 사용하지 않기 때문에 Heap메모리 최적화를 할 수 있다
+
+* not null 제약조건을 걸기위한 2가지 방법
+
+```java
+@Entity
+public class Station implements Persistable<Long> {
+
+    ..생략..
+
+    @ManyToOne(optional = false) // optional을 false로 주면 무조건 값이 있다고 설정하게 된다
+    @JoinColumn(name = "line_id", nullable = false) // 별도로 nullable 을 줄 수도 있다
+    private Line line;
+```
+
+* 디버거로 프록시 객체를 확인하게 되면 select 쿼리가 나가는점을 참고하자
+* 연관관계 주인인 쪽에서 읽기, 수정, 삭제를 해야한다

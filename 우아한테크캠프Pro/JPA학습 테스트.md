@@ -10,3 +10,6 @@
 ### 메소드명으로 카운트, exists 쿼리 생성 가능
 * countByName()
 * existsByName()
+
+### 준영속 엔티티를 비교할 경우 equals() hashCode() 를 활용하자
+* <a href="https://velog.io/@park2348190/JPA-Entity%EC%9D%98-equals%EC%99%80-hashCode">링크</a>

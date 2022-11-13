@@ -132,3 +132,23 @@ public class Station implements Persistable<Long> {
 
 * 디버거로 프록시 객체를 확인하게 되면 select 쿼리가 나가는점을 참고하자
 * 연관관계 주인인 쪽에서 읽기, 수정, 삭제를 해야한다
+
+### 레거시 코드 리팩토링
+* 대부분의 레거시 코드는 Service Layer에 핵심 비즈니스 로직이 구현되어있다
+* Service Layer 비즈니스 로직을 구현하게 되면 절차지향적인 프로그래밍을 할 수 밖에 없다
+* Service Layer 는 Thin Layer라고 부르기도 할 만큼 가벼워야 되며 단순히 Web Layer 와 Repository<br>
+Layer 의 인터페이스를 연결해주는 역할만 해야한다
+* 또한, 데이터를 조회해 오면 도메인 객체에 메세지를 보내는 역할만 하는것이다
+* Domain Model 에 비즈니스 로직을 구현해야 진정한 OOP를 지킬 수 있으며 단위테스트 인수테스트의 작성<br>
+비용도 현저히 줄일 수 있다
+
+```
+Service Layer 에 비즈니스 로직을 구현하게 되면 단위테스트를 구현할 때 Mock 프레임워크의 
+의존성이 강하게 형성되고 테스트 코드의 작성 비용이 굉장히 커지게 된다
+```
+
+<img src="./img/18.png">
+
+### 레거시 코드 리팩토링 1단계
+* Service Layer에 단위 테스트를 추가한 후 비즈니스 로직을 도메인 객체로 이동하는 리팩토링
+* Acceptance Test를  추가한 후 리팩토링

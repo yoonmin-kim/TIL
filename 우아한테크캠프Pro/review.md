@@ -180,3 +180,28 @@ public LottoResult isMatchBonus(LottoResult lottoResult) {
 ### 엔티티가 직접 넘어오는건 위험한 방식이다. 때문에 엔티티를 직접 넘기지 않도록 하자
 
 <img src="./img/24.png">
+
+### Command와 Query를 분리하라
+<img src="./img/25.png">
+
+### id값만 들고있기 보다는 해당 객체와 관계를 맺는것이 더 자연스럽다
+<img src="./img/26.png">
+
+### 위 내용과 같은 맥락으로 보인다
+<img src="./img/27.png">
+
+<img src="./img/32.png">
+
+### 공통으로 사용되는 기능에 대해서만 TestFixtures로 정의 및 테스트 주체 클래스에서 상속
+### 각 기능별 메소드는 별도의 클래스에서 public으로 제공
+<img src="./img/28.png">
+<img src="./img/29.png">
+
+### 과한 상속을 피하라
+<img src="./img/30.png">
+
+### repository는 service layer에서 처리되도록 하라
+<img src="./img/31.png">
+
+### 변경이 필요한 값에 대해서만 오픈하라
+<img src="./img/33.png">

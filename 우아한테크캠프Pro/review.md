@@ -151,10 +151,11 @@ public LottoResult isMatchBonus(LottoResult lottoResult) {
 ```
 
 ### (`default`가 필요 할 경우 `abstract class`의 사용을 고려하자)
+
 <img src="./img/16.png">
 
-
 ### (코드는 항상 모든 테스트가 성공 되어야만 커밋을 하자)
+
 <img src="./img/19.png">
 
 ### (테스트는 독립적인 환경에서 진행 될 수 있도록 해야한다)
@@ -182,26 +183,39 @@ public LottoResult isMatchBonus(LottoResult lottoResult) {
 <img src="./img/24.png">
 
 ### Command와 Query를 분리하라
+
 <img src="./img/25.png">
 
 ### id값만 들고있기 보다는 해당 객체와 관계를 맺는것이 더 자연스럽다
+
 <img src="./img/26.png">
 
 ### 위 내용과 같은 맥락으로 보인다
+
 <img src="./img/27.png">
 
 <img src="./img/32.png">
 
 ### 공통으로 사용되는 기능에 대해서만 TestFixtures로 정의 및 테스트 주체 클래스에서 상속
 ### 각 기능별 메소드는 별도의 클래스에서 public으로 제공
+
 <img src="./img/28.png">
 <img src="./img/29.png">
 
 ### 과한 상속을 피하라
+
 <img src="./img/30.png">
 
 ### repository는 service layer에서 처리되도록 하라
+
 <img src="./img/31.png">
 
 ### 변경이 필요한 값에 대해서만 오픈하라
+
 <img src="./img/33.png">
+
+### 각 기능별로 라인을 개행하고 테스트에서는 given, when, then으로 구분 해주면 가독성이 좋다
+
+### 기능의 목적에 맞는 결과를 정확히 테스트하자
+
+<img src="./img/37.png">

@@ -13,3 +13,9 @@
 
 ### 준영속 엔티티를 비교할 경우 equals() hashCode() 를 활용하자
 * <a href="https://velog.io/@park2348190/JPA-Entity%EC%9D%98-equals%EC%99%80-hashCode">링크</a>
+
+### CascadeType의 활용
+* PERSIST, REMOVE 등을 활용하면 부모 엔티티로 자식엔티티를 함께 저장하거나 삭제할 수 있다
+
+### orphanRemoval
+* 객체 그래프 탐색으로 영속상태인 자식 엔티티를 준영속 상태로 만들면 해당 엔티티에 대해서 delete쿼리를 날린다

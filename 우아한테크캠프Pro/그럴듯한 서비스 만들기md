@@ -30,3 +30,8 @@ bastion $ vi /etc/hosts
 
 bastion $ ssh [별칭]
 ```
+
+### 윈도우에서 EC2 원격 붙을때 pem키 권한문제
+```sh
+$ chmod 0600 KEY_xxx.pem
+```

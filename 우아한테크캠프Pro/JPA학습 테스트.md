@@ -19,3 +19,21 @@
 
 ### orphanRemoval
 * 객체 그래프 탐색으로 영속상태인 자식 엔티티를 준영속 상태로 만들면 해당 엔티티에 대해서 delete쿼리를 날린다
+
+### 계층형 쿼리
+* 오라클 `start with connect by prior` 를 JPA로 풀어내고자 할때 `Self Join`으로 해결한다
+
+```java
+@Entity
+@Table(name = "section")
+public class Section {
+    ..생략..
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "pre_section_id")
+    private Section preSection;
+
+    @OneToOne(mappedBy = "preSection", cascade = CascadeType.PERSIST)
+    private Section nextSection;
+    ..생략..
+}
+```

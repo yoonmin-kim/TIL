@@ -35,3 +35,86 @@ bastion $ ssh [별칭]
 ```sh
 $ chmod 0600 KEY_xxx.pem
 ```
+
+### 스프링 설정파일 나누기
+* application-local.properties, application-test.properties, application-prod.properties
+* java -jar -Dspring.profiles.active=prod application.jar
+* 깃 서브모듈
+  * git submodule add https://github.com/yoonmin-kim/properties-manage ./src/main/resources/config
+  * 서브모듈 인증은 토큰으로만 가능: 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
+
+### letsencrypt를 활용하여 무료로 TLS 인증서 설정, nginx
+* 도메인 입력란에 www. 까지 붙여주도록 한다
+```sh
+$ docker run -it --rm --name certbot \
+  -v '/etc/letsencrypt:/etc/letsencrypt' \
+  -v '/var/lib/letsencrypt:/var/lib/letsencrypt' \
+  certbot/certbot certonly -d 'www.yourdomain.com' --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory
+```
+
+<img src="./img/38.png">
+
+*  DNS를 설정하는 사이트에서 DNS TXT 레코드를 추가한 후, 제대로 반영되었는지 dig 명령어로 확인
+```sh
+$ dig -t txt _acme-challenge.www.yourdomain.com +short
+```
+
+* 생성한 인증서를 활용하여 Reverse Proxy에 TLS 설정를 설정한다. 우선 인증서를 현재 경로로 옮김.
+
+```sh
+$ cp /etc/letsencrypt/live/www.yourdomain.com/fullchain.pem ./
+$ cp /etc/letsencrypt/live/www.yourdomain.com/privkey.pem ./
+```
+
+* Dockerfile 을 아래와 같이 수정
+```
+FROM nginx
+
+COPY nginx.conf /etc/nginx/nginx.conf 
+COPY fullchain.pem /etc/letsencrypt/live/www.yourdomain.com/fullchain.pem
+COPY privkey.pem /etc/letsencrypt/live/www.yourdomain.com/privkey.pem
+```
+
+* nginx.conf 파일을 아래와 같이 수정
+```
+events {}
+
+http {       
+  upstream app {
+    server 172.17.0.1:8080;
+  }
+  
+  # Redirect all traffic to HTTPS
+  server {
+    listen 80;
+    return 301 https://$host$request_uri;
+  }
+
+  server {
+    listen 443 ssl;  
+    ssl_certificate /etc/letsencrypt/live/www.yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.yourdomain.com/privkey.pem;
+
+    # Disable SSL
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+
+    # 통신과정에서 사용할 암호화 알고리즘
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DH+3DES:!ADH:!AECDH:!MD5;
+
+    # Enable HSTS
+    # client의 browser에게 http로 어떠한 것도 load 하지 말라고 규제합니다.
+    # 이를 통해 http에서 https로 redirect 되는 request를 minimize 할 수 있습니다.
+    add_header Strict-Transport-Security "max-age=31536000" always;
+
+    # SSL sessions
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;      
+
+    location / {
+      proxy_pass http://app;    
+    }
+  }
+}
+
+```

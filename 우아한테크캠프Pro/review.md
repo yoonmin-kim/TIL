@@ -219,3 +219,24 @@ public LottoResult isMatchBonus(LottoResult lottoResult) {
 ### 기능의 목적에 맞는 결과를 정확히 테스트하자
 
 <img src="./img/37.png">
+
+### 외부에서 컬렉션 조작을 하면 어떻게 될까? 방어적 복사를 활용하라
+* 참고: https://tecoble.techcourse.co.kr/post/2021-04-26-defensive-copy-vs-unmodifiable/
+
+<img src="./img/39.png">
+
+### 외부 라이브러리의 경우 변경 될 가능성을 고려하여 인터페이스로 기능을 정의하라
+
+<img src="./img/40.png">
+
+### BDDMockito 를 활용하면 given / when / then 에 맞춘 메소드 명으로 가독성을 높일 수 있다
+* 참고 : https://velog.io/@lxxjn0/Mockito%EC%99%80-BDDMockito%EB%8A%94-%EB%AD%90%EA%B0%80-%EB%8B%A4%EB%A5%BC%EA%B9%8C
+
+<img src="./img/41.png">
+
+### 하나의 테스트에서 두개이상의 검증이 필요할때 assertAll() 을 활용하라
+* 참고: 
+  * https://sas-study.tistory.com/316, 
+  * https://escapefromcoding.tistory.com/358?category=1184809
+
+<img src="./img/42.png">

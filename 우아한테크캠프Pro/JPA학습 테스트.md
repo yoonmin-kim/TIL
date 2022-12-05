@@ -37,3 +37,11 @@ public class Section {
     ..생략..
 }
 ```
+
+### delete와 deleteById의 차이
+* `deleteById` 내부에서 `findById`를 먼저 수행 후 삭제를 진행한다
+* `delete` 는 엔티티가 Null인지 체크후 삭제를 진행한다
+* 둘의 성능상의 차이는 없다
+* 참고 : https://hwanchang.tistory.com/7
+
+<img src="./img/43.png">

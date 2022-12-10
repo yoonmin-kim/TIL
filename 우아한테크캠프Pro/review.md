@@ -240,3 +240,25 @@ public LottoResult isMatchBonus(LottoResult lottoResult) {
   * https://escapefromcoding.tistory.com/358?category=1184809
 
 <img src="./img/42.png">
+
+### 부하 테스트는 예측한 만큼의 사용자 요청을 처리할 수 있는가에 대한 테스트이다
+* 장애상황은 QA단계에서 기능테스트 시 이뤄진다
+
+<img src="./img/44.png">
+
+### Stress 테스트는 순단현상이 일어나는 지점을 보는것에 의미가 있다
+
+<img src="./img/45.png">
+
+### 서비스 상황에 대한 판단은 서버의 리소스, 연동하는 서비스의 상태, JVM일 경우 쓰레드상태 등 다방면에서 확인이 필요하다
+* 때문에 같은 정보를 보더라도 현재 본인이 알고있는 지식수준 확보 된 정보의 양에 따라서 다르게 해석 될 수 있음을 주의하자
+
+<img src="./img/46.png">
+
+### 편리성을 생각해서 클래스레벨에 어노테이션을 사용했으나 그에 따른 부작용도 고려하자
+
+<img src="./img/47.png">
+
+### 스프링부트는 설정을 통해 편리하게 기능들을 제공하지만 그에 따른 보안이슈는 없는지도 함께 확인해 보자
+
+<img src="./img/48.png">

@@ -48,3 +48,8 @@ git fetch upstream yoonmin-kim
 ```
 git rebase upstream/yoonmin-kim
 ```
+
+12. fork한 원격 저장소에 필요없는 브랜치 삭제
+```
+git push origin --delete step2
+```

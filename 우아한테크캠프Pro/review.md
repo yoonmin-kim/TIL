@@ -262,3 +262,28 @@ public LottoResult isMatchBonus(LottoResult lottoResult) {
 ### 스프링부트는 설정을 통해 편리하게 기능들을 제공하지만 그에 따른 보안이슈는 없는지도 함께 확인해 보자
 
 <img src="./img/48.png">
+
+### @Transactional 누락을 방지하기 위해 클래스 레벨에도 함께 추가하자
+
+<img src="./img/49.png">
+
+### 예외에는 모두 메세지를 추가하고 전달받은 파라미터도 함께 출력하자
+
+<img src="./img/50.png">
+
+### 필수로 필요한 값이라면 생성자로 전달받도록 하고 검증도 함께 진행하자
+
+<img src="./img/51.png">
+
+### 테스트 코드만을 위해 반환타입을 결정하게 될 경우 다른 사람이 코드를 해석할 때 걸림돌이 될 수 있다
+
+<img src="./img/53.png">
+
+### JPA에서 List 반환시 값이 없으면 List(size=0)를 반환하지만 Optional로 감쌀 경우<br>Optional.empty가 반환되어 익셉션을 활용할 수 있다
+
+<img src="./img/54.png">
+
+### 리팩터링 과정중에 API의 스펙이 바뀌지 않도록 하자
+
+<img src="./img/55.png">
+

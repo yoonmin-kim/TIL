@@ -45,3 +45,7 @@ public class Section {
 * 참고 : https://hwanchang.tistory.com/7
 
 <img src="./img/43.png">
+
+### N + 1 쿼리를 해결하자
+
+<img src="./img/52.png">
